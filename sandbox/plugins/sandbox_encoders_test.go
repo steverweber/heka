@@ -122,7 +122,7 @@ func EncoderSpec(c gs.Context) {
 			err    error
 		)
 		conf.ScriptFilename = "../lua/encoders/cbuf_librato.lua"
-		conf.ModuleDirectory = "../../../../../../modules"
+		conf.ModuleDirectory = "../lua/modules"
 		conf.Config = make(map[string]interface{})
 		err = encoder.Init(conf)
 		c.Assume(err, gs.IsNil)
@@ -197,7 +197,7 @@ func EncoderSpec(c gs.Context) {
 		pack.Message.AddField(f)
 
 		conf.ScriptFilename = "../lua/encoders/schema_influx.lua"
-		conf.ModuleDirectory = "../../../../../../modules"
+		conf.ModuleDirectory = "../lua/modules"
 		conf.Config = make(map[string]interface{})
 
 		c.Specify("encodes a basic message", func() {
