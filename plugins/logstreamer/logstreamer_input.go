@@ -402,7 +402,8 @@ func (lsi *LogstreamInput) payloadParser(ir p.InputRunner, deliver p.DeliverFunc
 			if lsi.prevMsgWasTruncated == false {
 				// pack message only if previous record had normal size
 				if is_message_truncated == false || lsi.keepTruncatedMessages == true {
-					// pack message if it's not truncated or it is truncated and force keeping is set
+					// pack message if it's not truncated or it is truncated
+					// and force keeping is set
 					payload := string(record)
 					pack = <-inChan
 					pack.Message.SetUuid(uuid.NewRandom())
